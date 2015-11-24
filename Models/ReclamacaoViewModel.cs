@@ -7,6 +7,7 @@ namespace ReclamaPoa2013.Models
 {
     public class ReclamacaoViewModel
     {
+        public int ReclamacaoId { get; set; }
         public String Titulo { get; set; }
         public String Descricao { get; set; }
         public DateTime Data { get; set; }

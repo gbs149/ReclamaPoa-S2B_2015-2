@@ -12,11 +12,11 @@
         </EmptyDataTemplate>
 
         <ItemTemplate>
-            <h2><%#:Item.Titulo %></h2><br />
-            <%#:Item.Descricao %><br />
+            <a href="Detalhes.aspx?id=<%#:Item.ReclamacaoId %>"><h2><%#:Item.Titulo %></h2></a><br />
+            <%--<%#:Item.Descricao %><br />--%>
             <%#:Item.Data.ToShortDateString() %><br />
             <%#:Item.Situacao %><br />
-            <%#:Item.Endereco %><br />
+            <%--<%#:Item.Endereco %><br />--%>
             <%#:Item.Bairro %><br />
             <%#:Item.Categoria %><br /><br />
         </ItemTemplate>

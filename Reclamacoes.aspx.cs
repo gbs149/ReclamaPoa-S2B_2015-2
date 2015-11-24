@@ -21,6 +21,7 @@ namespace ReclamaPoa2013
             IQueryable<ReclamacaoViewModel> query = from r in _db.Reclamacoes
                                                     select new ReclamacaoViewModel
                                                     {
+                                                        ReclamacaoId = r.ReclamacaoId,
                                                         Titulo = r.Titulo,
                                                         Descricao = r.Descricao,
                                                         Data = r.Data,
