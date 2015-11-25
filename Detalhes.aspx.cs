@@ -45,5 +45,27 @@ namespace ReclamaPoa2013
             }
             return new ReclamacaoViewModel();
         }
+
+        protected void btnComentario_Click(object sender, EventArgs e)
+        {
+            ReclamaPoaEntities _db = new ReclamaPoaEntities();
+            Comentario comentario = new Comentario();
+
+            String filtro = (string)Request.QueryString["id"];
+            int id;
+            if (Int32.TryParse(filtro, out id))
+            {
+                //fazer query para pegar a reclamação
+                comentario.Texto = txtComentario.Text;
+                Reclamacao r = new Reclamacao();
+                comentario.Reclamacao = r;
+                comentario.Reclamacao.ReclamacaoId = id;
+                comentario.Usuario = Context.User.Identity.Name;
+            }
+            _db.Comentarios.Add(comentario);
+            _db.SaveChanges();
+
+            Response.Redirect("Detalhes.aspx?id=" + id);
+        }
     }
 }

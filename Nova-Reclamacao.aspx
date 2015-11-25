@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Nova-Reclamacao.aspx.cs" Inherits="ReclamaPoa2013.Nova_Reclamacao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <%--TODO verificação de campos obrigatórios --%>
 
     <asp:Label ID="Label1" AssociatedControlID="txtNomeRec" runat="server" Text="Label">Título da Reclamação</asp:Label>
     <asp:TextBox ID="txtNomeRec" runat="server"></asp:TextBox>
@@ -8,7 +7,7 @@
     <br />
 
     <asp:Label ID="Label2" AssociatedControlID="txtDescRec" runat="server" Text="Label">Descrição</asp:Label>
-    <asp:TextBox ID="txtDescRec" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtDescRec" TextMode="MultiLine" Rows="5" Columns="60" runat="server"></asp:TextBox>
     <asp:RequiredFieldValidator CssClass="text-danger" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Campo obrigatório" ControlToValidate="txtDescRec"></asp:RequiredFieldValidator>
 
 
@@ -28,5 +27,7 @@
     <asp:RequiredFieldValidator CssClass="text-danger" ID="RequiredFieldValidator6" runat="server" ErrorMessage="Campo obrigatório" ControlToValidate="rblCategorias"></asp:RequiredFieldValidator>
 
     <asp:Button ID="btnSalvar" runat="server" Text="Registrar reclamação" OnClick="btnSalvar_Click" />
+
+    <asp:FormView ID="FormView1" runat="server"></asp:FormView>
 
 </asp:Content>

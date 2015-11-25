@@ -9,6 +9,7 @@ namespace ReclamaPoa2013.Models
     {
         public int ComentarioId { get; set; }
         public String Texto { get; set; }
+        public String Usuario { get; set; }
 
         public Reclamacao Reclamacao { get; set; }
     }
