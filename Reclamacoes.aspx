@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Reclamacoes.aspx.cs" Inherits="ReclamaPoa2013.Reclamacoes" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Reclamações</h1>
 
-    <asp:ListView 
-        ID="lvReclamacoes" 
+    <asp:ListView
+        ID="lvReclamacoes"
         runat="server"
         ItemType="ReclamaPoa2013.Models.ReclamacaoViewModel"
         SelectMethod="getReclamacoes">
@@ -12,13 +13,18 @@
         </EmptyDataTemplate>
 
         <ItemTemplate>
-            <a href="Detalhes.aspx?id=<%#:Item.ReclamacaoId %>"><h2><%#:Item.Titulo %></h2></a><br />
-            <%--<%#:Item.Descricao %><br />--%>
-            <%#:Item.Data.ToShortDateString() %><br />
-            <%#:Item.Situacao %><br />
-            <%--<%#:Item.Endereco %><br />--%>
-            <%#:Item.Bairro %><br />
-            <%#:Item.Categoria %><br /><br />
+            <div class="col-sm-4">
+                <a href="Detalhes.aspx?id=<%#:Item.ReclamacaoId %>">
+                    <h2><%#:Item.Titulo %></h2>
+                </a>
+                <br />
+                <img class="img-responsive" src="<%#:Item.UrlImagem %>" />
+                <p><%#:Item.Data.ToShortDateString() %></p>
+                <span class="label label-warning"><%#:Item.Situacao %></span>
+                <p><%#:Item.Bairro %></p>
+                <p><%#:Item.Categoria %></p>
+                <br />
+            </div>
         </ItemTemplate>
 
     </asp:ListView>

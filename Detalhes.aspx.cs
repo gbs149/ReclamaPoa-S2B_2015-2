@@ -13,6 +13,9 @@ namespace ReclamaPoa2013
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //WebControl situ = (WebControl)FindControl("spanSitu");
+            //situ.Attributes["Class"] = "label label-warning";
+
         }
 
 
@@ -57,9 +60,9 @@ namespace ReclamaPoa2013
         {
             int id = Int32.Parse(Request.QueryString["id"]);
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
-
-            //var query = _db.Comentarios.Where(c => c.Reclamacao.ReclamacaoId == id);
+            
             IQueryable<ComentarioViewModel> cvmData = from c in _db.Comentarios
+                                                      where c.Reclamacao.ReclamacaoId == id
                                                       select new ComentarioViewModel
                                                       {
                                                           ComentarioId = c.ComentarioId,
@@ -67,21 +70,6 @@ namespace ReclamaPoa2013
                                                           Usuario = c.Usuario,
                                                           ReclamacaoId = c.Reclamacao.ReclamacaoId
                                                       };
-                //new List<ComentarioViewModel>();
-
-            //foreach (var coment in query)
-            //{
-            //    ComentarioViewModel cvm = new ComentarioViewModel()
-            //    {
-            //        ComentarioId = coment.ComentarioId,
-            //        Texto = coment.Texto,
-            //        Usuario = coment.Usuario,
-            //        ReclamacaoId = coment.Reclamacao.ReclamacaoId
-            //    };
-
-            //    cvmData.Add(cvm);
-            //}
-
             return cvmData;
         }
 
