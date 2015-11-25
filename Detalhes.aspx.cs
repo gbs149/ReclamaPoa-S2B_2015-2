@@ -55,11 +55,12 @@ namespace ReclamaPoa2013
             int id;
             if (Int32.TryParse(filtro, out id))
             {
-                //fazer query para pegar a reclamação
+                // query para pegar a reclamação
+                var query = _db.Reclamacoes.Where(r => r.ReclamacaoId == id);
+                Reclamacao r1 = query.First(); 
+
                 comentario.Texto = txtComentario.Text;
-                Reclamacao r = new Reclamacao();
-                comentario.Reclamacao = r;
-                comentario.Reclamacao.ReclamacaoId = id;
+                comentario.Reclamacao = r1;
                 comentario.Usuario = Context.User.Identity.Name;
             }
             _db.Comentarios.Add(comentario);
