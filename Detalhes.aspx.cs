@@ -15,6 +15,8 @@ namespace ReclamaPoa2013
 
         }
 
+
+
         public ReclamacaoViewModel getReclamacao()
         {
             String filtro = (string)Request.QueryString["id"];
@@ -46,6 +48,45 @@ namespace ReclamaPoa2013
             return new ReclamacaoViewModel();
         }
 
+
+        /// <summary>
+        /// Recupera os comentarios da reclamacao
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<ComentarioViewModel> getComentarios()
+        {
+            int id = Int32.Parse(Request.QueryString["id"]);
+            ReclamaPoaEntities _db = new ReclamaPoaEntities();
+
+            //var query = _db.Comentarios.Where(c => c.Reclamacao.ReclamacaoId == id);
+            IQueryable<ComentarioViewModel> cvmData = from c in _db.Comentarios
+                                                      select new ComentarioViewModel
+                                                      {
+                                                          ComentarioId = c.ComentarioId,
+                                                          Texto = c.Texto,
+                                                          Usuario = c.Usuario,
+                                                          ReclamacaoId = c.Reclamacao.ReclamacaoId
+                                                      };
+                //new List<ComentarioViewModel>();
+
+            //foreach (var coment in query)
+            //{
+            //    ComentarioViewModel cvm = new ComentarioViewModel()
+            //    {
+            //        ComentarioId = coment.ComentarioId,
+            //        Texto = coment.Texto,
+            //        Usuario = coment.Usuario,
+            //        ReclamacaoId = coment.Reclamacao.ReclamacaoId
+            //    };
+
+            //    cvmData.Add(cvm);
+            //}
+
+            return cvmData;
+        }
+
+
+
         protected void btnComentario_Click(object sender, EventArgs e)
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
@@ -57,7 +98,7 @@ namespace ReclamaPoa2013
             {
                 // query para pegar a reclamação
                 var query = _db.Reclamacoes.Where(r => r.ReclamacaoId == id);
-                Reclamacao r1 = query.First(); 
+                Reclamacao r1 = query.First();
 
                 comentario.Texto = txtComentario.Text;
                 comentario.Reclamacao = r1;

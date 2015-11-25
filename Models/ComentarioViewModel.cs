@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ReclamaPoa2013.Models
+{
+    public class ComentarioViewModel
+    {
+        public int ComentarioId { get; set; }
+        public String Texto { get; set; }
+        public String Usuario { get; set; }
+        public int ReclamacaoId { get; set; }
+    }
+}

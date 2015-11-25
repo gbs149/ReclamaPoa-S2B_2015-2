@@ -375,6 +375,7 @@
     <Compile Include="Models\Bairro.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Comentario.cs" />
+    <Compile Include="Models\ComentarioViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Reclamacao.cs" />
     <Compile Include="Models\ReclamacaoViewModel.cs" />

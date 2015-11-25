@@ -27,9 +27,17 @@
            runat="server"/>
     <asp:Button ID="btnComentario" runat="server" Text="Salvar" OnClick="btnComentario_Click" />
 
-    <asp:ListView ID="lvComentarios" runat="server">
+    <asp:ListView 
+        ID="lvComentarios" 
+        ItemType="ReclamaPoa2013.Models.ComentarioViewModel"
+        SelectMethod="getComentarios"
+        runat="server">
+        <EmptyDataTemplate>
+            
+        </EmptyDataTemplate>
         <ItemTemplate>
-
+            <%#:Item.Usuario %><br />
+            <%#:Item.Texto %>
         </ItemTemplate>
     </asp:ListView>
 
