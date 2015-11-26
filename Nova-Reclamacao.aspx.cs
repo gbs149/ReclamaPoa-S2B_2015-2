@@ -16,21 +16,12 @@ namespace ReclamaPoa2013
             {
                 ReclamaPoaEntities _db = new ReclamaPoaEntities();
 
-
-                var bairros = from b in _db.Bairros
-                              orderby b.Nome
-                              select b;
-
-                ddlBairros.DataSource = bairros.ToList();
+                ddlBairros.DataSource = _db.Bairros.ToList();
                 ddlBairros.DataTextField = "Nome";
                 ddlBairros.DataValueField = "BairroId";
                 ddlBairros.DataBind();
 
-
-                var categorias = from c in _db.Categorias
-                                 select c;
-
-                rblCategorias.DataSource = categorias.ToList();
+                rblCategorias.DataSource = _db.Categorias.ToList();
                 rblCategorias.DataTextField = "Nome";
                 rblCategorias.DataValueField = "CategoriaId";
                 rblCategorias.DataBind();

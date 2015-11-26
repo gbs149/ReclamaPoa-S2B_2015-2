@@ -15,13 +15,20 @@ namespace ReclamaPoa2013
 
         }
 
+        //public IQueryable<Categoria> getCategorias()
+        //{
+        //    ReclamaPoaEntities _db = new ReclamaPoaEntities();
+        //    IQueryable<Categoria> query = _db.Categorias;
+        //    return query;
+        //}
+
         public IQueryable<ReclamacaoViewModel> GetReclamacoes()
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
 
-            String aberta = "label label-warning";
-            String resolvida = "label label-success";
-            String encerrada = "label label-default";
+            //String aberta = "label label-warning";
+            //String resolvida = "label label-success";
+            //String encerrada = "label label-default";
 
             IQueryable<ReclamacaoViewModel> query = from r in _db.Reclamacoes
                                                     select new ReclamacaoViewModel
@@ -37,21 +44,21 @@ namespace ReclamaPoa2013
                                                         UrlImagem = r.UrlImagem
                                                     };
 
-            foreach (ReclamacaoViewModel r in query)
-            {
-                if (r.Situacao == "Encerrada")
-                {
-                    r.SituacaoClass = encerrada;
-                }
-                else if (r.Situacao == "Resolvida")
-                {
-                    r.SituacaoClass = resolvida;
-                }
-                else
-                {
-                    r.SituacaoClass = aberta;
-                }
-            }
+            //foreach (ReclamacaoViewModel r in query)
+            //{
+            //    if (r.Situacao == "Encerrada")
+            //    {
+            //        r.SituacaoClass = encerrada;
+            //    }
+            //    else if (r.Situacao == "Resolvida")
+            //    {
+            //        r.SituacaoClass = resolvida;
+            //    }
+            //    else
+            //    {
+            //        r.SituacaoClass = aberta;
+            //    }
+            //}
 
 
 

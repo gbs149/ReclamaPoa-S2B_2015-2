@@ -1,7 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Reclamacoes.aspx.cs" Inherits="ReclamaPoa2013.Reclamacoes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Reclamações</h1>
+    <%--<div class="btn-group">
+        <ul>
+            <asp:ListView
+                ID="ListaCategorias"
+                ItemType="ReclamaPoa2013.Models.Categoria"
+                runat="server"
+                SelectMethod="getCategorias">
+                <ItemTemplate>
+                    <ul>
+                        <button type="button" class="btn btn-sm btn-primary"><%#:Item.Nome %></button>
+                    </ul>
+                </ItemTemplate>
+            </asp:ListView>
+        </ul>
+    </div>--%>
+
+    <%--<h1>Reclamações</h1>--%>
 
     <asp:ListView
         ID="lvReclamacoes"
