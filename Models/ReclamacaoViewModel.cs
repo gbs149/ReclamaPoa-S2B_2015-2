@@ -13,6 +13,7 @@ namespace ReclamaPoa2013.Models
         public DateTime Data { get; set; }
         public String Endereco { get; set; }
         public String Situacao { get; set; }
+        public String SituacaoClass { get; set; }
         public String Bairro { get; set; }
         public String Categoria { get; set; }
         public String UrlImagem { get; set; }

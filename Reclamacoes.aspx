@@ -20,7 +20,7 @@
                 <br />
                 <img class="img-responsive" src="<%#:Item.UrlImagem %>" />
                 <p><%#:Item.Data.ToShortDateString() %></p>
-                <span class="label label-warning"><%#:Item.Situacao %></span>
+                <span class="<%#:Item.SituacaoClass %>"><%#:Item.Situacao %></span>
                 <p><%#:Item.Bairro %></p>
                 <p><%#:Item.Categoria %></p>
                 <br />

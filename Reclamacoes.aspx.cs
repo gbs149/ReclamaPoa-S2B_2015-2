@@ -18,6 +18,11 @@ namespace ReclamaPoa2013
         public IQueryable<ReclamacaoViewModel> GetReclamacoes()
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
+
+            String aberta = "label label-warning";
+            String resolvida = "label label-success";
+            String encerrada = "label label-default";
+
             IQueryable<ReclamacaoViewModel> query = from r in _db.Reclamacoes
                                                     select new ReclamacaoViewModel
                                                     {
@@ -31,6 +36,26 @@ namespace ReclamaPoa2013
                                                         Categoria = r.Categoria.Nome,
                                                         UrlImagem = r.UrlImagem
                                                     };
+
+            foreach (ReclamacaoViewModel r in query)
+            {
+                if (r.Situacao == "Encerrada")
+                {
+                    r.SituacaoClass = encerrada;
+                }
+                else if (r.Situacao == "Resolvida")
+                {
+                    r.SituacaoClass = resolvida;
+                }
+                else
+                {
+                    r.SituacaoClass = aberta;
+                }
+            }
+
+
+
+
             return query;
         }
     }
