@@ -10,15 +10,43 @@ namespace ReclamaPoa2013
 {
     public partial class Categorias : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+protected void Page_Load(object sender, EventArgs e)
         {
+            ReclamaPoaEntities _db = new ReclamaPoaEntities();
+
+            // GridView1.DataSource = _db.Bairros.ToList();
+            // GridView1.DataBind();
+
+
+            //DropDownList1.DataSource = _db.Categorias.ToList();
+            //DropDownList1.DataTextField = "Nome";
+            //DropDownList1.DataBind();
 
         }
-        public IQueryable<Categoria> getCategorias()
+        public IQueryable<ReclamacaoViewModel> GetReclamacoes()
+        {
+            ReclamaPoaEntities _db = new ReclamaPoaEntities();
+
+            IQueryable<ReclamacaoViewModel> query = from r in _db.Reclamacoes
+                                                    select new ReclamacaoViewModel
+                                                    {
+                                                        ReclamacaoId = r.ReclamacaoId,
+                                                        Titulo = r.Titulo,
+                                                        Descricao = r.Descricao,
+                                                        Data = r.Data,
+                                                        Endereco = r.Endereco,
+                                                        Situacao = r.Situacao.ToString(),
+                                                        Bairro = r.Bairro.Nome,
+                                                        Categoria = r.Categoria.Nome,
+                                                        UrlImagem = r.UrlImagem
+                                                    };
+            return query;
+        }
+        /*public IQueryable<Categoria> getCategorias()
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
             IQueryable<Categoria> query = _db.Categorias;
             return query;
-        }
+        }*/
     }
 }

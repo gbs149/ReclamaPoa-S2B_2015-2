@@ -13,13 +13,11 @@ namespace ReclamaPoa2013
         protected void Page_Load(object sender, EventArgs e)
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
-            int cont = _db.Reclamacoes.Count();
-            lblTotal.Text = cont.ToString();
+            int totalReclamacoes = _db.Reclamacoes.Count();
+            lblTotal.Text = totalReclamacoes.ToString();
 
             if (!IsPostBack)
             {
-                //ReclamaPoaEntities _db = new ReclamaPoaEntities();
-
                 ddlBairros.DataSource = _db.Bairros.ToList();
                 ddlBairros.DataTextField = "Nome";
                 ddlBairros.DataValueField = "BairroId";
@@ -44,17 +42,81 @@ namespace ReclamaPoa2013
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
 
-            int bairroId = int.Parse(ddlBairros.SelectedValue);
-            int categoriaId = int.Parse(ddlCategorias.SelectedValue);
-            DateTime inicio = calInicio.SelectedDate;
-            DateTime fim = calFim.SelectedDate;
+            int totalReclamacoes = _db.Reclamacoes.Count();
+            int categoriaId;
+            int bairroId;
+            DateTime inicio;
+            DateTime fim;
 
-
-            var query = _db.Reclamacoes.Where(r => r.Bairro.BairroId == bairroId 
-                && r.Categoria.CategoriaId == categoriaId
-                && r.Data >= inicio && r.Data <= fim).Count();
-
-            lblSubTotal.Text = query.ToString();
+            // filtra por categoria, bairro e periodo
+            if (int.TryParse(ddlCategorias.SelectedValue, out categoriaId)
+                && int.TryParse(ddlBairros.SelectedValue, out bairroId)
+                && (DateTime.TryParse(txtDataInicio.Text, out inicio) && DateTime.TryParse(txtDataFinal.Text, out fim)))
+            {
+                var query = _db.Reclamacoes.Where(r => r.Categoria.CategoriaId == categoriaId
+                    && r.Bairro.BairroId == bairroId
+                    && (r.Data >= inicio && r.Data <= fim)
+                    ).Count();
+                lblSubTotal.Text = query.ToString();
+                UpdatePanel1.Update();
+            }
+            // filtra somente por categoria
+            else if (int.TryParse(ddlCategorias.SelectedValue, out categoriaId)
+               && !int.TryParse(ddlBairros.SelectedValue, out bairroId)
+               && !(DateTime.TryParse(txtDataInicio.Text, out inicio) && DateTime.TryParse(txtDataFinal.Text, out fim)))
+            {
+                var query = _db.Reclamacoes.Where(r => r.Categoria.CategoriaId == categoriaId).Count();
+                lblSubTotal.Text = query.ToString();
+                UpdatePanel1.Update();
+            }
+            // filtra somente por bairro
+            else if (!int.TryParse(ddlCategorias.SelectedValue, out categoriaId)
+               && int.TryParse(ddlBairros.SelectedValue, out bairroId)
+               && !(DateTime.TryParse(txtDataInicio.Text, out inicio) && DateTime.TryParse(txtDataFinal.Text, out fim)))
+            {
+                var query = _db.Reclamacoes.Where(r => r.Bairro.BairroId == bairroId).Count();
+                lblSubTotal.Text = query.ToString();
+                UpdatePanel1.Update();
+            }
+            // filtra somente por período
+            else if (!int.TryParse(ddlCategorias.SelectedValue, out categoriaId)
+               && !int.TryParse(ddlBairros.SelectedValue, out bairroId)
+               && (DateTime.TryParse(txtDataInicio.Text, out inicio) && DateTime.TryParse(txtDataFinal.Text, out fim)))
+            {
+                var query = _db.Reclamacoes.Where(r => r.Data >= inicio && r.Data <= fim).Count();
+                lblSubTotal.Text = query.ToString();
+                UpdatePanel1.Update();
+            }
+            // filtra por categoria e bairro
+            else if (int.TryParse(ddlCategorias.SelectedValue, out categoriaId)
+                && int.TryParse(ddlBairros.SelectedValue, out bairroId)
+                && !(DateTime.TryParse(txtDataInicio.Text, out inicio) && DateTime.TryParse(txtDataFinal.Text, out fim)))
+            {
+                var query = _db.Reclamacoes.Where(r => r.Categoria.CategoriaId == categoriaId
+                    && r.Bairro.BairroId == bairroId).Count();
+                lblSubTotal.Text = query.ToString();
+                UpdatePanel1.Update();
+            }
+            // filtra por categoria e período
+            else if (int.TryParse(ddlCategorias.SelectedValue, out categoriaId)
+                && !int.TryParse(ddlBairros.SelectedValue, out bairroId)
+                && (DateTime.TryParse(txtDataInicio.Text, out inicio) && DateTime.TryParse(txtDataFinal.Text, out fim)))
+            {
+                var query = _db.Reclamacoes.Where(r => r.Categoria.CategoriaId == categoriaId
+                    && r.Data >= inicio && r.Data <= fim).Count();
+                lblSubTotal.Text = query.ToString();
+                UpdatePanel1.Update();
+            }
+            // filtra por bairro e período
+            else if (!int.TryParse(ddlCategorias.SelectedValue, out categoriaId)
+                && int.TryParse(ddlBairros.SelectedValue, out bairroId)
+                && (DateTime.TryParse(txtDataInicio.Text, out inicio) && DateTime.TryParse(txtDataFinal.Text, out fim)))
+            {
+                var query = _db.Reclamacoes.Where(r => r.Bairro.BairroId == bairroId
+                    && r.Data >= inicio && r.Data <= fim).Count();
+                lblSubTotal.Text = query.ToString();
+                UpdatePanel1.Update();
+            }
         }
 
         //public IQueryable<Categoria> getCategorias()

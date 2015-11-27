@@ -102,3 +102,4 @@ C:\Users\sala312.PORTOALEGRE.003\Desktop\ReclamaPoa2013\ReclamaPoa2013\bin\Micro
 C:\Users\sala312.PORTOALEGRE.003\Desktop\ReclamaPoa2013\ReclamaPoa2013\obj\Debug\ReclamaPoa2013.csprojResolveAssemblyReference.cache
 C:\Users\sala312.PORTOALEGRE.003\Desktop\ReclamaPoa2013\ReclamaPoa2013\obj\Debug\ReclamaPoa2013.dll
 C:\Users\sala312.PORTOALEGRE.003\Desktop\ReclamaPoa2013\ReclamaPoa2013\obj\Debug\ReclamaPoa2013.pdb
+C:\Users\Gabriel\Desktop\S2B\projeto\ReclamaPoa2013\ReclamaPoa2013\bin\AjaxControlToolkit.dll
