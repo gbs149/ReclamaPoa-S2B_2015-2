@@ -179,9 +179,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="admin\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Detalhes.aspx" />
-    <Content Include="painel-de-controle.aspx" />
+    <Content Include="admin\painel-de-controle.aspx" />
     <Content Include="Reclamacoes.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -386,11 +387,11 @@
     <Compile Include="Nova-Reclamacao.aspx.designer.cs">
       <DependentUpon>Nova-Reclamacao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="painel-de-controle.aspx.cs">
+    <Compile Include="admin\painel-de-controle.aspx.cs">
       <DependentUpon>painel-de-controle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="painel-de-controle.aspx.designer.cs">
+    <Compile Include="admin\painel-de-controle.aspx.designer.cs">
       <DependentUpon>painel-de-controle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

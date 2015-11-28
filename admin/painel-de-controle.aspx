@@ -2,8 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
-
     <h1>Painel de controle</h1>
 
     <div>Total de reclamações:</div>
@@ -42,15 +40,14 @@
             </div>
 
             <div>
-                <%--<asp:Button ID="Button1" runat="server" Text="Filtrar" OnClick="Button1_Click" />--%>
                 <div>                    
-                <asp:Label ID="lblSubTotal" runat="server" Text=""></asp:Label>
+                <p><asp:Label ID="lblSubTotal" runat="server" Text=""></asp:Label></p>
                 </div>
-                <div><asp:Label ID="lblMediaFiltrada" runat="server" Text=""></asp:Label></div>
+                <div><p><asp:Label ID="lblMediaFiltrada" runat="server" Text=""></asp:Label></p></div>
                 <div>
-                    <asp:Label ID="lblAbertas" runat="server" Text=""></asp:Label>
-                    <asp:Label ID="lblResolvidas" runat="server" Text=""></asp:Label>
-                    <asp:Label ID="lblEncerradas" runat="server" Text=""></asp:Label>
+                    <p><asp:Label ID="lblAbertas" runat="server" Text=""></asp:Label></p>
+                    <p><asp:Label ID="lblResolvidas" runat="server" Text=""></asp:Label></p>
+                    <p><asp:Label ID="lblEncerradas" runat="server" Text=""></asp:Label></p>
                 </div>
             </div>
         </ContentTemplate>
