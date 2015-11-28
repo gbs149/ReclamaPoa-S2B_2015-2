@@ -22,22 +22,13 @@ namespace ReclamaPoa2013 {
         protected global::System.Web.UI.WebControls.FormView detalhesReclamacao;
         
         /// <summary>
-        /// txtComentario control.
+        /// LoginView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComentario;
-        
-        /// <summary>
-        /// btnComentario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComentario;
+        protected global::System.Web.UI.WebControls.LoginView LoginView1;
         
         /// <summary>
         /// lvComentarios control.

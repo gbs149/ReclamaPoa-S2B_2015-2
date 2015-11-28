@@ -79,6 +79,7 @@ namespace ReclamaPoa2013
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
             Comentario comentario = new Comentario();
+            TextBox textoComentario = (TextBox)LoginView1.FindControl("txtComentario");
 
             String filtro = (string)Request.QueryString["id"];
             int id;
@@ -88,7 +89,7 @@ namespace ReclamaPoa2013
                 var query = _db.Reclamacoes.Where(r => r.ReclamacaoId == id);
                 Reclamacao r1 = query.First();
 
-                comentario.Texto = txtComentario.Text;
+                comentario.Texto = textoComentario.Text;
                 comentario.Reclamacao = r1;
                 comentario.Usuario = Context.User.Identity.Name;
             }

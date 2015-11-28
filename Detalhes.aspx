@@ -24,13 +24,16 @@
         </ItemTemplate>
     </asp:FormView>
 
-
+    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+        <LoggedInTemplate>
             <asp:TextBox ID="txtComentario"
                 TextMode="MultiLine"
                 Columns="50"
                 Rows="5"
                 runat="server" />
             <asp:Button ID="btnComentario" runat="server" Text="Salvar" OnClick="btnComentario_Click" />
+        </LoggedInTemplate>
+    </asp:LoginView>
 
 
     <div class="panel-group">

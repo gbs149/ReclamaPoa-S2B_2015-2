@@ -14,6 +14,7 @@ namespace ReclamaPoa2013.Models
     public class ApplicationUser : IdentityUser
     {
         public String Nome { get; set; }
+        public Boolean Oficial { get; set; }
 
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {

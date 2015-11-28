@@ -19,7 +19,8 @@ namespace ReclamaPoa2013.Account
             {
                 UserName = Email.Text,
                 Email = Email.Text,
-                Nome = txtNome.Text
+                Nome = txtNome.Text,
+                Oficial = false
             };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
