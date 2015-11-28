@@ -10,17 +10,13 @@ namespace ReclamaPoa2013
 {
     public partial class Categorias : System.Web.UI.Page
     {
-protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
-
-            // GridView1.DataSource = _db.Bairros.ToList();
-            // GridView1.DataBind();
-
-
-            //DropDownList1.DataSource = _db.Categorias.ToList();
-            //DropDownList1.DataTextField = "Nome";
-            //DropDownList1.DataBind();
+                        
+            DropDownList1.DataSource = _db.Categorias.ToList();
+            DropDownList1.DataTextField = "Nome";
+            DropDownList1.DataBind();
 
         }
         public IQueryable<ReclamacaoViewModel> GetReclamacoes()

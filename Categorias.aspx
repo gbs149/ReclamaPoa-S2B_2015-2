@@ -5,8 +5,8 @@
     <br />
     <br />
     <asp:DropDownList ID="DropDownList1" runat="server" Height="61px" Width="133px"></asp:DropDownList>
-    </br>
-    </br>
+    <br />
+    <br />
     <asp:ListView
         ID="lvbairros"
         runat="server"

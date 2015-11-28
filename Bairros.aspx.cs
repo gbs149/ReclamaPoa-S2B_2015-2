@@ -14,13 +14,9 @@ namespace ReclamaPoa2013
         {
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
 
-            // GridView1.DataSource = _db.Bairros.ToList();
-            // GridView1.DataBind();
-
-
-            //DropDownList1.DataSource = _db.Bairros.ToList();
-            //DropDownList1.DataTextField = "Nome";
-            //DropDownList1.DataBind();
+            DropDownList1.DataSource = _db.Bairros.ToList();
+            DropDownList1.DataTextField = "Nome";
+            DropDownList1.DataBind();
             
         }
         public IQueryable<ReclamacaoViewModel> GetReclamacoes()
