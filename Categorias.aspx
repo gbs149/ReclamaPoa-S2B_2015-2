@@ -1,16 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Categorias.aspx.cs" Inherits="ReclamaPoa2013.Categorias" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">   
+
     <br />
     <br />
-    <asp:DropDownList ID="DropDownList1" runat="server" Height="61px" Width="133px"></asp:DropDownList>
+    
+    <asp:DropDownList ID="ddl" AutoPostBack="true" runat="server"></asp:DropDownList>
+    <h3>Data Inicio</h3>
+    <asp:Calendar ID="calInicio" runat="server"></asp:Calendar>
+    <h3>Data Final</h3>
+    <asp:Calendar ID="calFim" runat="server"></asp:Calendar>
+    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
     <br />
     <br />
-    <asp:ListView
-        ID="lvbairros"
+
+        <asp:ListView
+        ID="Lvcategorias"
         runat="server"
-        ItemType="ReclamaPoa2013.Models.ReclamacaoViewModel"
+        ItemType="ReclamaPoa2013.Models.ReclamacaoViewModel" 
         SelectMethod="getReclamacoes">
         <EmptyDataTemplate>
             <h1>Nenhuma reclamação encontrada</h1>
@@ -30,23 +37,6 @@
                 <br />
             </div>
         </ItemTemplate>
-
     </asp:ListView>
-</asp:Content>
 
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <ul>
-        <li style="height: 464px; margin-top: 51px">
-        <asp:ListView
-            ID="ListaCategorias"
-            ItemType="ReclamaPoa2013.Models.Categoria"
-            runat="server"
-            SelectMethod="getCategorias">
-            <ItemTemplate>
-                <ul>
-                    <%#:Item.Nome %>
-                </ul>
-            </ItemTemplate>
-        </asp:ListView>
-    </ul>
-</asp:Content>--%>
+    </asp:Content>

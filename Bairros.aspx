@@ -1,13 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Bairros.aspx.cs" Inherits="ReclamaPoa2013.Bairros" %>
-<%--<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-    
-</asp:Content>--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">   
     <br />
     <br />
-    <asp:DropDownList ID="DropDownList1" runat="server" Height="61px" Width="133px"></asp:DropDownList>
+    <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" Height="61px" Width="133px"></asp:DropDownList>
+    <h3>Data Inicio</h3>
+    <asp:Calendar ID="calInicio" runat="server"></asp:Calendar>
+    <h3>Data Final</h3>
+    <asp:Calendar ID="calFim" runat="server"></asp:Calendar>
+    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+    <br />
     <br />
     <asp:ListView
         ID="lvbairros"

@@ -60,6 +60,13 @@
                     </asp:LoginView>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/Nova-Reclamacao">Nova Reclamação</a></li>
+                                <li><a runat="server" href="~/bairros">Bairros</a></li>
+                                <li><a runat="server" href="~/Categorias">Categorias</a></li>
+                                <li><a runat="server" href="~/Pesquisa">Pesquisas</a></li>
+                        
+                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>

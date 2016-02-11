@@ -184,6 +184,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Detalhes.aspx" />
     <Content Include="admin\painel-de-controle.aspx" />
+    <Content Include="Pesquisa.aspx" />
     <Content Include="Reclamacoes.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -383,6 +384,10 @@
     <Compile Include="Migrations\201511241743157_InitialCreate.Designer.cs">
       <DependentUpon>201511241743157_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511282031396_UsuarioOficial.cs" />
+    <Compile Include="Migrations\201511282031396_UsuarioOficial.Designer.cs">
+      <DependentUpon>201511282031396_UsuarioOficial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bairro.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -406,6 +411,13 @@
     </Compile>
     <Compile Include="admin\painel-de-controle.aspx.designer.cs">
       <DependentUpon>painel-de-controle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisa.aspx.cs">
+      <DependentUpon>Pesquisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pesquisa.aspx.designer.cs">
+      <DependentUpon>Pesquisa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Detalhes.aspx.cs">
@@ -451,6 +463,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511241743157_InitialCreate.resx">
       <DependentUpon>201511241743157_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511282031396_UsuarioOficial.resx">
+      <DependentUpon>201511282031396_UsuarioOficial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
