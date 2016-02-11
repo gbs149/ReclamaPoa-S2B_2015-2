@@ -2,40 +2,45 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ReclamaPoa2013
 {
-    public partial class Bairros : System.Web.UI.Page
+    public partial class Pesquisa : System.Web.UI.Page
     {
-
         IQueryable<ReclamacaoViewModel> query = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
-                ReclamaPoaEntities _db = new ReclamaPoaEntities(); 
-                DropDownList1.DataSource = _db.Bairros.ToList();
-                DropDownList1.DataTextField = "Nome";
-                DropDownList1.DataValueField = "BairroId";
-                DropDownList1.DataBind();
+                ReclamaPoaEntities _db = new ReclamaPoaEntities();
+                ddlcategoria.DataSource = _db.Categorias.ToList();
+                ddlbairro.DataSource = _db.Bairros.ToList();
+                ddlcategoria.DataTextField = "Nome";
+                ddlcategoria.DataValueField = "CategoriaId";
+                ddlbairro.DataTextField = "Nome";
+                ddlbairro.DataValueField = "BairroId";
+                ddlcategoria.DataBind();
+                ddlbairro.DataBind();
             }
+
         }
 
         public IQueryable<ReclamacaoViewModel> GetReclamacoes()
         {
-
-            // int filtro = int.Parse(DropDownList1.SelectedValue);
-            string filtro = DropDownList1.SelectedItem.ToString();
+            string filtro = ddlbairro.SelectedItem.ToString();
+            string filtro2 = ddlcategoria.SelectedItem.ToString();
             DateTime inicio = calInicio.SelectedDate;
             DateTime fim = calFim.SelectedDate;
+
             ReclamaPoaEntities _db = new ReclamaPoaEntities();
 
             query = from r in _db.Reclamacoes
-                    where filtro == r.Bairro.Nome && r.Data >= inicio && r.Data <= fim
+                    where r.Categoria.Nome == filtro2 && r.Bairro.Nome == filtro && r.Data >= inicio && r.Data <= fim 
                     select new ReclamacaoViewModel
                     {
                         ReclamacaoId = r.ReclamacaoId,
@@ -48,14 +53,15 @@ namespace ReclamaPoa2013
                         Categoria = r.Categoria.Nome,
                         UrlImagem = r.UrlImagem
                     };
-
-
-            lvbairros.DataBind();
+            lvpesquisas.DataBind();
             return query;
         }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             GetReclamacoes();
         }
+
+
     }
 }
